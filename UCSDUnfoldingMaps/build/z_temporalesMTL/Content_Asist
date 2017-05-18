@@ -1,0 +1,18 @@
+
+
+${methodType default="public"} ${return default="void"} ${methodName} (${parameters}) {
+
+
+    ${cursor} 
+
+
+}//${methodName}()
+
+
+
+// ===================================== 
+// = ${header_name default="Attribute(s)" } = 
+// ===================================== 
+
+${cursor}
+
