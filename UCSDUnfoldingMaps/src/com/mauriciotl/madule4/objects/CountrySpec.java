@@ -16,56 +16,69 @@ public class CountrySpec {
 	// ===================================== 
 
 	
-
-	
 // ===================================== 
 // = Attributes                        = 
 // ===================================== 
 	
-	private Map properties;
+	
+	private HashMap<String, Object> properties = new HashMap<>();
 	
 	
-	int cuentaTembloresTierra = 0;
-	int cuentaTembloresMar = 0;
-	Date fechaTemblorMasReciente = null;
+	private int cuentaTembloresTierra = 0;
+	private int cuentaTembloresMar = 0;
+	private int cuentaTembloresTotales = cuentaTembloresTierra + cuentaTembloresMar;
 	
-
+	private Date fechaTemblorMasReciente;
+	
+	
+	
 // ===================================== 
 // = Constructor's                        = 
 // ===================================== 
 	
-	/*
-	 * CountryProperties must arrive as Map (Interface)
-	 * which allows more flexibility and more loosely coupleness
-	 */
+	//En el constructor se crean las propiedades
+	//básicas necesarias con las que nacerá el CountrySpec
 	
-	public CountrySpec(Map countryProperties){
+	public CountrySpec(){
 		
-		//Constructor handles null possibility
+		this.properties.put("cuentaTembloresTierra", cuentaTembloresTierra);
+		this.properties.put("cuentaTembloresMar", cuentaTembloresMar);
+		this.properties.put("cuentaTembloresTotales", cuentaTembloresTotales);
 		
-		if(countryProperties == null){
-			this.properties = new HashMap();
-		}else{
-			this.properties = countryProperties;
-		}
-		
+		this.properties.put("fechaTemblorMasReciente", fechaTemblorMasReciente);
 	}
-	
 	
 	// ===================================== 
 	// = g/s = 
 	// ===================================== 
 
-	public Map getProperties(){
+	
+	public HashMap<String, Object> getProperties(){
 		return this.properties;
 	}
-	
 	
 	public Object getPropertyValueFromKey(String key){
 		
 		return this.properties.get(key);
 	}
 	
+	
+	// ===================================== 
+	// = CRUD basic properties                        = 
+	// ===================================== 
+
+	public void addTembloresTierra(int numTembloresTierra){
+		cuentaTembloresTierra += numTembloresTierra;
+	}
+	
+	public void addTembloresMar(int numTembloresMar){
+		cuentaTembloresMar += numTembloresMar;
+	}
+	
+	public void addFechaTemblorMasReciente(Date dateLastTemblor){
+		
+		this.fechaTemblorMasReciente = dateLastTemblor;
+	}
 	
 	
 	

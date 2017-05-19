@@ -17,10 +17,10 @@ public class Country {
 // ===================================== 
 
 	
-	public Country(String name, CountrySpec countrySpec) {
+	public Country(String name) {
 		super();
 		this.name = name;
-		this.countrySpec = countrySpec;
+		this.countrySpec = new CountrySpec();
 	}
 	
 // ===================================== 

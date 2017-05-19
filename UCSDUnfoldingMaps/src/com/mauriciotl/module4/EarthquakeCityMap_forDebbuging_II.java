@@ -273,7 +273,6 @@ public class EarthquakeCityMap_forDebbuging_II extends PApplet {
 							System.out.println("Prints country: " + country);
 //							feature.putProperty("country", country);
 							
-							cuenta = 
 							
 							
 							
