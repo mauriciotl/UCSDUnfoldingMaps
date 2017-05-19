@@ -24,6 +24,24 @@ public class TestCountries {
 		System.out.println("\n\nLista propiedades modificadas");
 		printListProperties();
 
+		// Se realizarán algunas modificaciones y se verifica, recordar que el
+		// sistema va adicionando
+		// en cuanto a cuenta de temblores se refiere.
+		modifyCountryProperties("México", 2, 2, new Date(System.currentTimeMillis()));
+
+		// Se listan todas las propiedades modificadas
+		System.out.println("\n\nLista propiedades modificadas");
+		printListProperties();
+
+		// Se realizarán algunas modificaciones y se verifica, recordar que el
+		// sistema va adicionando
+		// en cuanto a cuenta de temblores se refiere.
+		modifyCountryProperties("Alemania", 4, 4, new Date(System.currentTimeMillis()));
+
+		// Se listan todas las propiedades modificadas
+		System.out.println("\n\nLista propiedades modificadas");
+		printListProperties();
+
 	}
 
 	// =====================================

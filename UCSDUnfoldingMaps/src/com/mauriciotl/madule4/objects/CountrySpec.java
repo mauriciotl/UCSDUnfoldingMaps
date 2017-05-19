@@ -69,15 +69,32 @@ public class CountrySpec {
 
 	public void addTembloresTierra(int numTembloresTierra){
 		cuentaTembloresTierra += numTembloresTierra;
+		
+		//Se realiza planchado pues no se está impactando en el final
+		this.properties.put("cuentaTembloresTierra", cuentaTembloresTierra);
+		
+		//Tambien se actualiza el total pues no se realiza de forma auto
+		this.properties.put("cuentaTembloresTotales", cuentaTembloresTierra + cuentaTembloresMar);
+		
+		
 	}
 	
 	public void addTembloresMar(int numTembloresMar){
 		cuentaTembloresMar += numTembloresMar;
+		
+		this.properties.put("cuentaTembloresMar", cuentaTembloresMar);
+	
+		//Tambien se actualiza el total pues no se realiza de forma auto
+		this.properties.put("cuentaTembloresTotales", cuentaTembloresTierra + cuentaTembloresMar);
+		
 	}
 	
 	public void addFechaTemblorMasReciente(Date dateLastTemblor){
 		
 		this.fechaTemblorMasReciente = dateLastTemblor;
+		
+		this.properties.put("fechaTemblorMasReciente", fechaTemblorMasReciente);
+		
 	}
 	
 	
