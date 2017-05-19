@@ -1,6 +1,7 @@
 package com.mauriciotl.module4;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -203,6 +204,8 @@ public class EarthquakeCityMap_forDebbuging_II extends PApplet {
 
 		// TODO: Implement this method using the helper method isInCountry
 
+		//R by MTL = The implementation of this method is pretty straight forward since
+		//the fundamental method is the isInCountry method which is already developed.
 		
 		for(Marker countryMarker : countryMarkers){
 			
@@ -226,15 +229,15 @@ public class EarthquakeCityMap_forDebbuging_II extends PApplet {
 	{
 		// TODO: Implement this method
 		
-		System.out.println("Prints contryMarker HashMap properties: ");
-		for(Marker countryMarker : countryMarkers){
-			System.out.println();
-			for(Map.Entry<String, Object> entry : countryMarker.getProperties().entrySet()){
-				String key = entry.getKey();
-				Object value = entry.getValue();
-				System.out.println("key: " + key + "\t value: " + value);
-			}
-		}
+//		System.out.println("Prints contryMarker HashMap properties: ");
+//		for(Marker countryMarker : countryMarkers){
+//			System.out.println();
+//			for(Map.Entry<String, Object> entry : countryMarker.getProperties().entrySet()){
+//				String key = entry.getKey();
+//				Object value = entry.getValue();
+//				System.out.println("key: " + key + "\t value: " + value);
+//			}
+//		}
 		
 		
 		
@@ -243,6 +246,9 @@ public class EarthquakeCityMap_forDebbuging_II extends PApplet {
 //	     STEP 3: read in earthquake RSS feed
 			List<PointFeature> earthquakes = ParseFeed.parseEarthquake(this, earthquakesURL);
 
+			
+			Map<String, Integer> hashMapCountries = new HashMap<>();
+			
 			System.out.println("Prints earthquakes HashMap properties: ============================");
 			for(PointFeature feature : earthquakes) {
 				
@@ -250,9 +256,52 @@ public class EarthquakeCityMap_forDebbuging_II extends PApplet {
 					System.out.println();
 					String key = entry.getKey();
 					Object value = entry.getValue();
-					System.out.println("key: " + key + "\t value: " + value);
+					
+					//Del key "title" extaeremos el nombre del país y esta propiedad
+					//se la agregaremos al HashMap
+					
+					String country;
+					
+					if(entry.getKey().equals("title")){
+						String longString = entry.getValue().toString();
+						
+						if(longString.contains(",")){
+							
+							String[] result = longString.split(",");
+							country = result[1];
+							
+							System.out.println("Prints country: " + country);
+//							feature.putProperty("country", country);
+							
+							cuenta = 
+							
+							
+							
+							
+						}
+					}
+					
+					
+					
+//					System.out.println("key: " + key + "\t value: " + value);
 				}
-			}
+			}//outer for
+			
+			
+			
+//			System.out.println("Prints earthquakes HashMap properties ya con la propiedad de pais: ============================");
+//			for(PointFeature feature : earthquakes) {
+//				
+//				for(Map.Entry<String, Object> entry : feature.getProperties().entrySet()){
+//					System.out.println();
+//					String key = entry.getKey();
+//					Object value = entry.getValue();
+//					
+//					System.out.println("key: " + key + "\t value: " + value);
+//				}
+//			}//outer for
+			
+			
 	}
 
 
