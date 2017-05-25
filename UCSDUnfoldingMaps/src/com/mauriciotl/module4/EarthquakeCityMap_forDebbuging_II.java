@@ -102,7 +102,7 @@ public class EarthquakeCityMap_forDebbuging_II extends PApplet {
 		//earthquakesURL = "test2.atom";
 
 		// WHEN TAKING THIS QUIZ: Uncomment the next line
-		//earthquakesURL = "quiz1.atom";
+		earthquakesURL = "quiz1.atom";
 
 
 		// (2) Reading in earthquake data and geometric properties
@@ -247,48 +247,9 @@ public class EarthquakeCityMap_forDebbuging_II extends PApplet {
 			List<PointFeature> earthquakes = ParseFeed.parseEarthquake(this, earthquakesURL);
 
 			
-			Map<String, Integer> hashMapCountries = new HashMap<>();
-			
-			System.out.println("Prints earthquakes HashMap properties: ============================");
-			for(PointFeature feature : earthquakes) {
-				
-				for(Map.Entry<String, Object> entry : feature.getProperties().entrySet()){
-					System.out.println();
-					String key = entry.getKey();
-					Object value = entry.getValue();
-					
-					//Del key "title" extaeremos el nombre del país y esta propiedad
-					//se la agregaremos al HashMap
-					
-					String country;
-					
-					if(entry.getKey().equals("title")){
-						String longString = entry.getValue().toString();
-						
-						if(longString.contains(",")){
-							
-							String[] result = longString.split(",");
-							country = result[1];
-							
-							System.out.println("Prints country: " + country);
-//							feature.putProperty("country", country);
-							
-							
-							
-							
-							
-						}
-					}
-					
-					
-					
-//					System.out.println("key: " + key + "\t value: " + value);
-				}
-			}//outer for
-			
-			
-			
-//			System.out.println("Prints earthquakes HashMap properties ya con la propiedad de pais: ============================");
+//			Map<String, Integer> hashMapCountries = new HashMap<>();
+//			
+//			System.out.println("Prints earthquakes HashMap properties: ============================");
 //			for(PointFeature feature : earthquakes) {
 //				
 //				for(Map.Entry<String, Object> entry : feature.getProperties().entrySet()){
@@ -296,9 +257,48 @@ public class EarthquakeCityMap_forDebbuging_II extends PApplet {
 //					String key = entry.getKey();
 //					Object value = entry.getValue();
 //					
-//					System.out.println("key: " + key + "\t value: " + value);
+//					//Del key "title" extaeremos el nombre del país y esta propiedad
+//					//se la agregaremos al HashMap
+//					
+//					String country;
+//					
+//					if(entry.getKey().equals("title")){
+//						String longString = entry.getValue().toString();
+//						
+//						if(longString.contains(",")){
+//							
+//							String[] result = longString.split(",");
+//							country = result[1];
+//							
+//							System.out.println("Prints country: " + country);
+////							feature.putProperty("country", country);
+//							
+//							
+//							
+//							
+//							
+//						}
+//					}
+//					
+//					
+//					
+////					System.out.println("key: " + key + "\t value: " + value);
 //				}
 //			}//outer for
+			
+			
+			
+			System.out.println("Prints earthquakes HashMap properties ya con la propiedad de pais: ============================");
+			for(PointFeature feature : earthquakes) {
+				
+				for(Map.Entry<String, Object> entry : feature.getProperties().entrySet()){
+					System.out.println();
+					String key = entry.getKey();
+					Object value = entry.getValue();
+					
+					System.out.println("key: " + key + "\t value: " + value);
+				}
+			}//outer for
 			
 			
 	}

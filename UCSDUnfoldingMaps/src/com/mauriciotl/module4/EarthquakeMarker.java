@@ -45,7 +45,6 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 
 	// ADD constants for colors
 
-	
 		
 	// ===================================== 
 	// = Constructor's                        = 
@@ -95,6 +94,8 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 		
 		// OPTIONAL TODO: draw X over marker if within past day		
 		
+		drawAnX(pg, x, y);
+		
 		// reset to previous styling
 		pg.popStyle();
 		
@@ -106,8 +107,32 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 	// You might find the getters below helpful.
 	private void colorDetermine(PGraphics pg) {
 		//TODO: Implement this method
+		
+		float deep = this.getDepth();
+		
+		
+		if(deep<70){
+			pg.fill(255,255,0);
+		}else if (deep<300){
+			pg.fill(0,0,255);
+		}else{
+			pg.fill(255,0,0);
+		}
+		
 	}
 	
+	
+	private void drawAnX(PGraphics pg, float x, float y){
+		
+		
+		if(getAge().equalsIgnoreCase("Past Day")){
+			
+			pg.line(x-radius, y+radius, x+radius, y-radius);
+			pg.line(x+radius, y+radius, x-radius, y-radius);
+		}
+		
+		
+	}
 	
 	
 	// ===================================== 
@@ -132,6 +157,12 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 	public float getRadius() {
 		return Float.parseFloat(getProperty("radius").toString());
 	}
+	
+	
+	public String getAge(){
+		return (String) getProperty("age");	
+	}
+	
 	
 	public boolean isOnLand()
 	{

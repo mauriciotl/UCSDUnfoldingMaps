@@ -2,14 +2,17 @@ package com.mauriciotl.madule4.objects;
 
 public class Country {
 
-
+/*
+ * Esta clase maneja una propiedad general para Country = name, adicionalmente utiliza
+ * la clase ObjectSpec para llevar una lista de valores key, value
+ */
 
 // ===================================== 
 // = Attributes                        = 
 // ===================================== 
 
 	private String name;
-	private CountrySpec countrySpec;
+	private ObjectSpec objectSpec;
 	
 	
 // ===================================== 
@@ -17,11 +20,12 @@ public class Country {
 // ===================================== 
 
 	
-	public Country(String name) {
-		super();
+	public Country(String name, ObjectSpec objectSpec){
+		
 		this.name = name;
-		this.countrySpec = new CountrySpec();
+		this.objectSpec = objectSpec;
 	}
+	
 	
 // ===================================== 
 // = g/s                        = 
@@ -32,12 +36,9 @@ public class Country {
 		return name;
 	}
 	
-	public CountrySpec getCountrySpec(){
+	public ObjectSpec getObjectSpec(){
 		
-		return this.countrySpec;
+		return this.objectSpec;
 	}
-
-
-	
 	
 }
